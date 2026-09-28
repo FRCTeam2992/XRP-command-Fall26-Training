@@ -1,7 +1,6 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
@@ -21,17 +20,18 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final XRPDrivetrain m_xrpDrivetrain = new XRPDrivetrain();
   private final Arm m_arm = new Arm();
-
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_xrpDrivetrain);
-
   private final CommandXboxController m_Controller = new CommandXboxController(0);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /**
+   * The container for the robot. Contains subsystems, OI devices, and commands.
+   */
   public RobotContainer() {
     // Configure the button bindings
     m_arm.setDefaultCommand(m_arm.moveArm(() -> axisToAngle(m_Controller.getRightY())));
-    m_xrpDrivetrain.setDefaultCommand(m_xrpDrivetrain.arcadeDriveCommand(
-        () -> -m_Controller.getLeftY(), m_Controller::getRightX));
+    m_xrpDrivetrain.setDefaultCommand(m_xrpDrivetrain.arcadeDriveCommand(() -> -m_Controller.getLeftY(),
+        m_Controller::getRightX
+    ));
     configureButtonBindings();
   }
 
