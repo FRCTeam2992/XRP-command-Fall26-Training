@@ -187,4 +187,5 @@ compile_commands.json
 .factorypath
 
 # Generated BuildConstants
+# File automatically generated during the build process with Git SHA and build-specific info
 src/main/java/frc/robot/generated/BuildConstants.java
